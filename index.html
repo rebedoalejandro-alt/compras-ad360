@@ -145,6 +145,22 @@ input[type="search"] { width: 100%; }
 .pie .conIva { margin-left: auto; }
 .pie b { font-weight: 600; color: var(--tinta); }
 
+/* El total esta incompleto cuando hay centros ilegibles. La regla ambar
+   marca que es una salvedad sobre la cifra, no una nota mas. */
+.faltan {
+  margin-top: 18px;
+  padding: 12px 0 12px 14px;
+  border-left: 3px solid var(--ambar);
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+  max-width: 74ch;
+}
+.faltan p { margin: 0 0 7px; }
+.faltan b { color: var(--tinta); font-weight: 600; }
+.faltan ul { margin: 0; padding-left: 18px; }
+.faltan li { margin: 2px 0; }
+.faltan .quien { color: var(--tinta); }
+
 /* ---------- arbol ---------- */
 
 table { width: 100%; border-collapse: collapse; }
@@ -263,6 +279,7 @@ tr.devolucion td, tr.devolucion .concepto { color: var(--oxido); }
     <strong class="cifra dato" id="cifra">—</strong>
     <div class="regla"></div>
     <div class="pie" id="pie"></div>
+    <div id="faltan"></div>
   </section>
 
   <div id="salida"><p class="cargando">Cargando movimientos…</p></div>
@@ -274,8 +291,9 @@ tr.devolucion td, tr.devolucion .concepto { color: var(--oxido); }
     <p>Las devoluciones van en rojo y entre paréntesis, restando.</p>
     <p>Centros y meses se ordenan por importe, de mayor a menor. Días y albaranes,
       del más reciente al más antiguo.</p>
-    <p>Se actualiza solo cada día a las 09:00. El enlace de la barra de direcciones
-      guarda el filtro: cópialo y quien lo abra verá lo mismo que tú.</p>
+    <p>Se actualiza solo dos veces al día, a las 09:00 y a las 15:00. El enlace
+      de la barra de direcciones guarda el filtro: cópialo y quien lo abra verá
+      lo mismo que tú.</p>
   </footer>
 
 </div>
@@ -534,6 +552,8 @@ function pintar() {
     "<span><b>" + ent.format(centros.size) + "</b> centros con compra</span>" +
     '<span class="conIva">' + dinero(conIva) + " con IVA</span>";
 
+  pintarFaltan();
+
   if (!lineas.length) {
     $("salida").innerHTML =
       '<div class="vacio"><p>No hay movimientos con este filtro.</p>' +
@@ -552,6 +572,21 @@ function pintar() {
       pintar();
     });
   }
+}
+
+function pintarFaltan() {
+  const faltan = D.sin_datos || [];
+  const caja = $("faltan");
+  if (!faltan.length) { caja.innerHTML = ""; caja.className = ""; return; }
+  caja.className = "faltan";
+  const cuantos = faltan.length === 1 ? "1 centro" : faltan.length + " centros";
+  caja.innerHTML =
+    "<p>Estas cifras <b>no incluyen " + cuantos + "</b>, porque no se pudo " +
+    "entrar en AD360 a leer su compra:</p><ul>" +
+    faltan.map((c) =>
+      '<li><span class="quien">' + esc(c.centro) + " " + esc(c.nombre) +
+      "</span> (" + esc(c.ensena) + "): " + esc(c.motivo) + "</li>").join("") +
+    "</ul>";
 }
 
 function recorrer(padre, nivel) {
