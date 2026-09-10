@@ -1,0 +1,4 @@
+# Nada de esto debe salir de la red interna
+*.xlsx
+*.xls
+*.xlsm

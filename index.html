@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%2316233a'/%3E%3Crect x='3' y='4' width='10' height='2' fill='%23e8a33d'/%3E%3Crect x='3' y='7.5' width='7' height='1.5' fill='%23e7ecef'/%3E%3Crect x='3' y='11' width='9' height='1.5' fill='%23e7ecef'/%3E%3C/svg%3E">
+<title>Compra AD360 por centro</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --papel: #e7ecef;
+  --papel-alto: #f3f7f8;
+  --tinta: #16233a;
+  --tinta-suave: #55677e;
+  --acero: #b8c4ce;
+  --acero-tenue: #d3dce2;
+  --ambar: #b57715;
+  --oxido: #a83a29;
+  --foco: #16233a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papel: #0f1924;
+    --papel-alto: #16222f;
+    --tinta: #dfe7ed;
+    --tinta-suave: #93a4b5;
+    --acero: #32465a;
+    --acero-tenue: #23323f;
+    --ambar: #e8a33d;
+    --oxido: #e0705c;
+    --foco: #e8a33d;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font: 400 15px/1.5 system-ui, "Segoe UI Variable Text", "Segoe UI", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.dato {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.envoltura { max-width: 1180px; margin: 0 auto; padding: 0 20px 96px; }
+
+/* ---------- cabecera ---------- */
+
+.tira {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 22px;
+  padding: 18px 0 14px;
+  border-bottom: 1px solid var(--acero);
+}
+.marca { font-size: 15px; font-weight: 600; letter-spacing: .01em; margin: 0; }
+.marca span { font-weight: 400; color: var(--tinta-suave); }
+
+.frescura {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; color: var(--tinta-suave); margin-right: auto;
+}
+.pulso {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ambar); flex: none;
+}
+.frescura.caducada { color: var(--ambar); }
+
+.descargas { display: flex; gap: 16px; font-size: 13px; }
+.descargas a, .enlace {
+  color: var(--tinta); text-decoration: none;
+  border-bottom: 1px solid var(--acero);
+  padding-bottom: 1px; background: none; border-top: 0; border-left: 0;
+  border-right: 0; font: inherit; cursor: pointer;
+}
+.descargas a:hover, .enlace:hover { border-bottom-color: var(--tinta); }
+
+/* ---------- filtros ---------- */
+
+.filtros {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--acero-tenue);
+}
+.campo { display: flex; flex-direction: column; gap: 5px; }
+.campo > label { font-size: 12px; color: var(--tinta-suave); }
+.campo.crece { flex: 1 1 220px; }
+
+input[type="date"], input[type="search"], select {
+  font: inherit; color: var(--tinta);
+  background: var(--papel-alto);
+  border: 1px solid var(--acero);
+  border-radius: 4px;
+  padding: 7px 9px;
+  min-width: 0;
+}
+input[type="search"] { width: 100%; }
+:focus-visible {
+  outline: 2px solid var(--foco);
+  outline-offset: 2px;
+}
+
+.atajos { display: flex; gap: 6px; }
+.atajos button {
+  font: inherit; font-size: 13px;
+  color: var(--tinta-suave);
+  background: transparent;
+  border: 1px solid var(--acero);
+  border-radius: 4px;
+  padding: 7px 11px;
+  cursor: pointer;
+}
+.atajos button:hover { color: var(--tinta); border-color: var(--tinta-suave); }
+.atajos button[aria-pressed="true"] {
+  color: var(--tinta); border-color: var(--tinta);
+  background: var(--papel-alto);
+}
+
+/* ---------- total del periodo ---------- */
+
+.total { padding: 34px 0 26px; }
+.total .periodo { font-size: 15px; color: var(--tinta-suave); }
+.cifra {
+  display: block;
+  text-align: right;
+  font-size: clamp(2.9rem, 9vw, 5.1rem);
+  font-weight: 600;
+  letter-spacing: -.03em;
+  line-height: .96;
+  margin: 6px 0 10px;
+}
+.cifra.negativa { color: var(--oxido); }
+.regla { border-top: 2px solid var(--tinta); }
+.pie {
+  display: flex; flex-wrap: wrap; gap: 6px 26px;
+  padding-top: 9px; font-size: 13.5px; color: var(--tinta-suave);
+}
+.pie .conIva { margin-left: auto; }
+.pie b { font-weight: 600; color: var(--tinta); }
+
+/* ---------- arbol ---------- */
+
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  position: sticky; top: 0;
+  background: var(--papel);
+  text-align: left;
+  font-size: 12px; font-weight: 600; color: var(--tinta-suave);
+  padding: 10px 10px 8px;
+  border-bottom: 1px solid var(--acero);
+  white-space: nowrap;
+}
+thead th.num, td.num { text-align: right; }
+
+tbody td {
+  padding: 0; border-bottom: 1px solid var(--acero-tenue);
+  font-size: 14px; vertical-align: baseline;
+}
+tbody td > .celda { display: block; padding: 8px 10px; }
+
+tr.grupo { cursor: pointer; }
+tr.grupo:hover { background: var(--papel-alto); }
+tr.grupo.n0 > td { font-weight: 600; }
+tr.grupo.n0 > td:first-child { font-size: 15px; }
+tr.abierta > td { border-bottom-color: var(--acero); }
+
+.disparador {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  background: none; border: 0; padding: 8px 10px; margin: 0;
+  font: inherit; color: inherit; text-align: left; cursor: pointer;
+  width: 100%;
+}
+.flecha {
+  flex: none; width: .7em; color: var(--tinta-suave);
+  transition: transform .12s ease;
+}
+tr.abierta .flecha { transform: rotate(90deg); }
+@media (prefers-reduced-motion: reduce) { .flecha { transition: none; } }
+
+.sangria { display: inline-block; flex: none; }
+.guia { border-left: 1px solid var(--acero-tenue); height: 1.2em; }
+
+tr.linea td { color: var(--tinta); }
+tr.linea .ref { font-weight: 500; }
+tr.devolucion td, tr.devolucion .concepto { color: var(--oxido); }
+.devuelto { color: var(--oxido); }
+
+.marca-pieza { color: var(--tinta-suave); font-size: 13px; }
+.desc { color: var(--tinta-suave); font-size: 13px; }
+
+.vacio { padding: 60px 10px; color: var(--tinta-suave); }
+.vacio p { margin: 0 0 6px; }
+
+.nota {
+  margin-top: 34px; padding-top: 16px;
+  border-top: 1px solid var(--acero-tenue);
+  font-size: 13px; color: var(--tinta-suave); max-width: 68ch;
+}
+.nota p { margin: 0 0 8px; }
+
+.cargando { padding: 60px 10px; color: var(--tinta-suave); }
+
+@media (max-width: 860px) {
+  th.oculta-movil, td.oculta-movil { display: none; }
+  .total { padding-top: 34px; }
+}
+</style>
+</head>
+<body>
+<div class="envoltura">
+
+  <header class="tira">
+    <h1 class="marca">Compra AD360 <span>por centro</span></h1>
+    <span class="frescura" id="frescura"><span class="pulso"></span><span id="frescuraTexto">cargando</span></span>
+    <nav class="descargas">
+      <a href="datos/lineas.csv" download>Líneas en bruto</a>
+      <a href="datos/albaranes.csv" download>Albaranes en bruto</a>
+      <button type="button" class="enlace" id="btnFiltrado">Descargar lo filtrado</button>
+    </nav>
+  </header>
+
+  <form class="filtros" id="filtros" autocomplete="off">
+    <div class="campo">
+      <label for="desde">Desde</label>
+      <input type="date" id="desde">
+    </div>
+    <div class="campo">
+      <label for="hasta">Hasta</label>
+      <input type="date" id="hasta">
+    </div>
+    <div class="campo">
+      <label id="etiquetaAtajos">Rango</label>
+      <div class="atajos" role="group" aria-labelledby="etiquetaAtajos">
+        <button type="button" data-rango="hoy">Hoy</button>
+        <button type="button" data-rango="7">7 días</button>
+        <button type="button" data-rango="mes">Este mes</button>
+        <button type="button" data-rango="todo">Todo</button>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="ensena">Enseña</label>
+      <select id="ensena"><option value="">Todas</option></select>
+    </div>
+    <div class="campo">
+      <label for="centro">Centro</label>
+      <select id="centro"><option value="">Todos</option></select>
+    </div>
+    <div class="campo crece">
+      <label for="texto">Referencia, marca o descripción</label>
+      <input type="search" id="texto" placeholder="p. ej. MANN, pastilla, C30004">
+    </div>
+  </form>
+
+  <section class="total" aria-live="polite">
+    <div class="periodo" id="periodo">&nbsp;</div>
+    <strong class="cifra dato" id="cifra">—</strong>
+    <div class="regla"></div>
+    <div class="pie" id="pie"></div>
+  </section>
+
+  <div id="salida"><p class="cargando">Cargando movimientos…</p></div>
+
+  <footer class="nota">
+    <p>Los importes son el <b>neto sin IVA</b>: PVP menos descuento, por unidades.
+      El total con IVA es la suma de los albaranes que aparecen en el filtro, tal
+      y como los factura AD360 con el 21 %.</p>
+    <p>Las devoluciones van en rojo y entre paréntesis, restando.</p>
+    <p>Centros y meses se ordenan por importe, de mayor a menor. Días y albaranes,
+      del más reciente al más antiguo.</p>
+    <p>Se actualiza solo cada día a las 09:00. El enlace de la barra de direcciones
+      guarda el filtro: cópialo y quien lo abra verá lo mismo que tú.</p>
+  </footer>
+
+</div>
+
+<script>
+"use strict";
+
+// Los importes llegan en centimos enteros: sumar miles de lineas con float
+// arrastra decimas y los totales dejan de cuadrar con el Excel.
+const L_CENTRO = 0, L_FECHA = 1, L_ALBARAN = 2, L_REF = 3, L_MARCA = 4,
+      L_DESC = 5, L_UDS = 6, L_PVP = 7, L_DTO = 8, L_NETO = 9;
+const A_CENTRO = 0, A_FECHA = 1, A_ALBARAN = 2, A_TOTAL = 3;
+
+const C_CODIGO = 0, C_NOMBRE = 1, C_ENSENA = 2;
+
+const MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+               "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+const eur = new Intl.NumberFormat("es-ES", { minimumFractionDigits: 2,
+                                             maximumFractionDigits: 2,
+                                             useGrouping: true });
+const ent = new Intl.NumberFormat("es-ES");
+
+let D = null;
+let totalPorAlbaran = new Map();
+const abiertos = new Set();
+let filasVisibles = [];
+
+const $ = (id) => document.getElementById(id);
+
+function dinero(centimos) {
+  const texto = eur.format(Math.abs(centimos) / 100) + " €";
+  return centimos < 0 ? "(" + texto + ")" : texto;
+}
+
+function fechaLarga(iso) {
+  const [a, m, d] = iso.split("-");
+  return Number(d) + " de " + MESES[Number(m) - 1] + " de " + a;
+}
+
+function fechaCorta(iso) {
+  const [a, m, d] = iso.split("-");
+  return d + "/" + m + "/" + a;
+}
+
+// ---------- carga ----------
+
+fetch("datos/datos.json", { cache: "no-cache" })
+  .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(arrancar)
+  .catch((error) => {
+    $("salida").innerHTML =
+      '<div class="vacio"><p>No se han podido cargar los datos (' +
+      String(error.message) + ').</p><p>Vuelve a intentarlo en un minuto: ' +
+      'el panel se está republicando.</p></div>';
+  });
+
+function arrancar(datos) {
+  D = datos;
+  for (const a of D.albaranes) {
+    // La misma clave que usan las lineas: codigo de centro, no su indice.
+    const clave = D.centros[a[A_CENTRO]][C_CODIGO] + "|" + a[A_ALBARAN];
+    totalPorAlbaran.set(clave, (totalPorAlbaran.get(clave) || 0) + a[A_TOTAL]);
+  }
+
+  const ensenas = [...new Set(D.centros.map((c) => c[C_ENSENA]))].sort();
+  for (const e of ensenas) {
+    $("ensena").append(new Option(e, e));
+  }
+  rellenarCentros();
+
+  $("desde").min = D.desde || "";
+  $("desde").max = D.hasta || "";
+  $("hasta").min = D.desde || "";
+  $("hasta").max = D.hasta || "";
+
+  mostrarFrescura();
+  leerHash();
+  $("filtros").addEventListener("input", () => { escribirHash(); pintar(); });
+  $("ensena").addEventListener("change", rellenarCentros);
+  for (const boton of document.querySelectorAll(".atajos button")) {
+    boton.addEventListener("click", () => { aplicarRango(boton.dataset.rango); });
+  }
+  $("btnFiltrado").addEventListener("click", descargarFiltrado);
+  window.addEventListener("hashchange", () => { leerHash(); pintar(); });
+  pintar();
+}
+
+function rellenarCentros() {
+  const ensena = $("ensena").value;
+  const elegido = $("centro").value;
+  const select = $("centro");
+  select.innerHTML = "";
+  select.append(new Option("Todos", ""));
+  const vistos = D.centros
+    .filter((c) => !ensena || c[C_ENSENA] === ensena)
+    .sort((a, b) => a[C_CODIGO].localeCompare(b[C_CODIGO], "es", { numeric: true }));
+  for (const c of vistos) {
+    select.append(new Option(c[C_CODIGO] + " " + c[C_NOMBRE], c[C_CODIGO]));
+  }
+  select.value = vistos.some((c) => c[C_CODIGO] === elegido) ? elegido : "";
+}
+
+function mostrarFrescura() {
+  if (!D.generado) return;
+  const generado = new Date(D.generado);
+  const horas = (Date.now() - generado.getTime()) / 36e5;
+  const hora = generado.toLocaleTimeString("es-ES",
+    { hour: "2-digit", minute: "2-digit" });
+  const dia = generado.toLocaleDateString("es-ES",
+    { day: "numeric", month: "long" });
+  $("frescuraTexto").textContent = "Actualizado el " + dia + " a las " + hora;
+  if (horas > 36) {
+    $("frescura").classList.add("caducada");
+    $("frescuraTexto").textContent += " · lleva más de un día sin refrescarse";
+  }
+}
+
+// ---------- filtro ----------
+
+function aplicarRango(rango) {
+  const fin = D.hasta || new Date().toISOString().slice(0, 10);
+  let inicio = D.desde || fin;
+  if (rango === "hoy") {
+    inicio = fin;
+  } else if (rango === "7") {
+    const f = new Date(fin + "T00:00:00");
+    f.setDate(f.getDate() - 6);
+    inicio = f.toISOString().slice(0, 10);
+  } else if (rango === "mes") {
+    inicio = fin.slice(0, 7) + "-01";
+  }
+  if (inicio < (D.desde || inicio)) inicio = D.desde;
+  $("desde").value = inicio;
+  $("hasta").value = fin;
+  escribirHash();
+  pintar();
+}
+
+function marcarAtajo(desde, hasta) {
+  const fin = D.hasta || "";
+  let activo = "";
+  if (hasta === fin) {
+    if (desde === fin) activo = "hoy";
+    else if (desde === (D.desde || "")) activo = "todo";
+    else if (desde === fin.slice(0, 7) + "-01") activo = "mes";
+  }
+  for (const boton of document.querySelectorAll(".atajos button")) {
+    boton.setAttribute("aria-pressed", String(boton.dataset.rango === activo));
+  }
+}
+
+function filtroActual() {
+  return {
+    desde: $("desde").value,
+    hasta: $("hasta").value,
+    ensena: $("ensena").value,
+    centro: $("centro").value,
+    texto: $("texto").value.trim().toLowerCase(),
+  };
+}
+
+function filtrar(f) {
+  const salida = [];
+  for (const l of D.lineas) {
+    const fecha = l[L_FECHA];
+    if (f.desde && fecha < f.desde) continue;
+    if (f.hasta && fecha > f.hasta) continue;
+    const centro = D.centros[l[L_CENTRO]];
+    if (f.ensena && centro[C_ENSENA] !== f.ensena) continue;
+    if (f.centro && centro[C_CODIGO] !== f.centro) continue;
+    if (f.texto) {
+      const paja = (l[L_REF] + " " + D.marcas[l[L_MARCA]] + " " + l[L_DESC])
+        .toLowerCase();
+      if (!paja.includes(f.texto)) continue;
+    }
+    salida.push(l);
+  }
+  return salida;
+}
+
+// ---------- agrupacion ----------
+
+function nodo(clave, etiqueta, nivel) {
+  return { clave, etiqueta, nivel, neto: 0, lineas: 0,
+           albaranes: new Set(), hijos: new Map(), filas: null };
+}
+
+function agrupar(lineas) {
+  const raiz = nodo("", "", -1);
+  for (const l of lineas) {
+    const centro = D.centros[l[L_CENTRO]];
+    const fecha = l[L_FECHA];
+    const claves = [
+      [centro[C_ENSENA], centro[C_ENSENA]],
+      [centro[C_CODIGO], centro[C_CODIGO] + " " + centro[C_NOMBRE]],
+      [fecha.slice(0, 7), MESES[Number(fecha.slice(5, 7)) - 1] + " " + fecha.slice(0, 4)],
+      [fecha, fechaCorta(fecha)],
+      [l[L_ALBARAN], "Albarán " + l[L_ALBARAN]],
+    ];
+    let actual = raiz;
+    let camino = "";
+    let nivel = 0;
+    for (const [clave, etiqueta] of claves) {
+      camino += "|" + clave;
+      let hijo = actual.hijos.get(clave);
+      if (!hijo) {
+        hijo = nodo(camino, etiqueta, nivel);
+        actual.hijos.set(clave, hijo);
+      }
+      hijo.neto += l[L_NETO];
+      hijo.lineas += 1;
+      hijo.albaranes.add(centro[C_CODIGO] + "|" + l[L_ALBARAN]);
+      actual = hijo;
+      nivel += 1;
+    }
+    (actual.filas ||= []).push(l);
+  }
+  return raiz;
+}
+
+function ordenar(nodos, nivel) {
+  const lista = [...nodos.values()];
+  // Enseña, centro y mes por importe: lo que interesa es quién compra más.
+  // Día y albarán en orden inverso de fecha: para el repaso diario.
+  if (nivel <= 2) return lista.sort((a, b) => b.neto - a.neto);
+  return lista.sort((a, b) => (a.clave < b.clave ? 1 : -1));
+}
+
+// ---------- pintado ----------
+
+function pintar() {
+  const f = filtroActual();
+  marcarAtajo(f.desde, f.hasta);
+  const lineas = filtrar(f);
+
+  const neto = lineas.reduce((s, l) => s + l[L_NETO], 0);
+  const albaranes = new Set();
+  const centros = new Set();
+  for (const l of lineas) {
+    const c = D.centros[l[L_CENTRO]];
+    albaranes.add(c[C_CODIGO] + "|" + l[L_ALBARAN]);
+    centros.add(c[C_CODIGO]);
+  }
+  let conIva = 0;
+  for (const clave of albaranes) conIva += totalPorAlbaran.get(clave) || 0;
+
+  $("periodo").textContent = f.desde && f.hasta
+    ? "del " + fechaLarga(f.desde) + " al " + fechaLarga(f.hasta)
+    : "todo el periodo publicado";
+  $("cifra").textContent = dinero(neto);
+  $("cifra").classList.toggle("negativa", neto < 0);
+  $("pie").innerHTML =
+    "<span><b>" + ent.format(albaranes.size) + "</b> albaranes</span>" +
+    "<span><b>" + ent.format(lineas.length) + "</b> líneas</span>" +
+    "<span><b>" + ent.format(centros.size) + "</b> centros con compra</span>" +
+    '<span class="conIva">' + dinero(conIva) + " con IVA</span>";
+
+  if (!lineas.length) {
+    $("salida").innerHTML =
+      '<div class="vacio"><p>No hay movimientos con este filtro.</p>' +
+      "<p>Prueba a ampliar el rango de fechas o a quitar el texto de búsqueda.</p></div>";
+    return;
+  }
+
+  const raiz = agrupar(lineas);
+  filasVisibles = [];
+  recorrer(raiz, 0);
+  $("salida").innerHTML = tabla(filasVisibles);
+  for (const boton of $("salida").querySelectorAll(".disparador")) {
+    boton.addEventListener("click", () => {
+      const clave = boton.closest("tr").dataset.clave;
+      if (abiertos.has(clave)) abiertos.delete(clave); else abiertos.add(clave);
+      pintar();
+    });
+  }
+}
+
+function recorrer(padre, nivel) {
+  for (const n of ordenar(padre.hijos, nivel)) {
+    const abierto = abiertos.has(n.clave);
+    filasVisibles.push({ tipo: "grupo", n, abierto });
+    if (!abierto) continue;
+    if (n.filas) {
+      for (const l of n.filas) filasVisibles.push({ tipo: "linea", l, nivel: nivel + 1 });
+    } else {
+      recorrer(n, nivel + 1);
+    }
+  }
+}
+
+function sangria(nivel) {
+  let salida = "";
+  for (let i = 0; i < nivel; i += 1) {
+    salida += '<span class="sangria" style="width:18px"><span class="guia"></span></span>';
+  }
+  return salida;
+}
+
+function esc(texto) {
+  return String(texto).replace(/[&<>"]/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+function tabla(filas) {
+  const cuerpo = filas.map((fila) => fila.tipo === "grupo"
+    ? filaGrupo(fila.n, fila.abierto)
+    : filaLinea(fila.l, fila.nivel)).join("");
+  return '<table><thead><tr>' +
+    '<th>Concepto</th>' +
+    '<th class="oculta-movil">Detalle</th>' +
+    '<th class="num">Uds.</th>' +
+    '<th class="num oculta-movil">PVP</th>' +
+    '<th class="num oculta-movil">Dto.</th>' +
+    '<th class="num">Neto s/IVA</th>' +
+    "</tr></thead><tbody>" + cuerpo + "</tbody></table>";
+}
+
+function filaGrupo(n, abierto) {
+  const detalle = n.filas
+    ? ent.format(n.lineas) + (n.lineas === 1 ? " línea" : " líneas")
+    : ent.format(n.albaranes.size) + (n.albaranes.size === 1 ? " albarán" : " albaranes") +
+      " · " + ent.format(n.lineas) + (n.lineas === 1 ? " línea" : " líneas");
+  return '<tr class="grupo n' + n.nivel + (abierto ? " abierta" : "") +
+    '" data-clave="' + esc(n.clave) + '">' +
+    '<td><button type="button" class="disparador" aria-expanded="' + abierto + '">' +
+      sangria(n.nivel) +
+      '<span class="flecha" aria-hidden="true">▸</span>' +
+      '<span class="concepto">' + esc(n.etiqueta) + "</span>" +
+    "</button></td>" +
+    '<td class="oculta-movil"><span class="celda desc">' + detalle + "</span></td>" +
+    '<td class="num"><span class="celda"></span></td>' +
+    '<td class="num oculta-movil"><span class="celda"></span></td>' +
+    '<td class="num oculta-movil"><span class="celda"></span></td>' +
+    '<td class="num"><span class="celda dato' + (n.neto < 0 ? " devuelto" : "") + '">' +
+      dinero(n.neto) + "</span></td></tr>";
+}
+
+function filaLinea(l, nivel) {
+  const devolucion = l[L_UDS] < 0;
+  const uds = (l[L_UDS] / 1000).toLocaleString("es-ES",
+    { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  const dto = (l[L_DTO] / 100).toLocaleString("es-ES",
+    { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + " %";
+  return '<tr class="linea' + (devolucion ? " devolucion" : "") + '">' +
+    '<td><span class="celda" style="display:flex;gap:8px">' + sangria(nivel) +
+      '<span class="sangria" style="width:.7em"></span>' +
+      '<span class="ref dato">' + esc(l[L_REF]) + "</span></span></td>" +
+    '<td class="oculta-movil"><span class="celda">' +
+      '<span class="marca-pieza">' + esc(D.marcas[l[L_MARCA]]) + "</span> " +
+      '<span class="desc">' + esc(l[L_DESC]) + "</span></span></td>" +
+    '<td class="num"><span class="celda dato">' + uds + "</span></td>" +
+    '<td class="num oculta-movil"><span class="celda dato">' +
+      eur.format(l[L_PVP] / 100) + "</span></td>" +
+    '<td class="num oculta-movil"><span class="celda dato">' + dto + "</span></td>" +
+    '<td class="num"><span class="celda dato">' + dinero(l[L_NETO]) +
+      "</span></td></tr>";
+}
+
+// ---------- enlace compartible ----------
+
+function escribirHash() {
+  const f = filtroActual();
+  const partes = new URLSearchParams();
+  for (const [clave, valor] of Object.entries(f)) {
+    if (valor) partes.set(clave, valor);
+  }
+  const nuevo = partes.toString();
+  if (nuevo !== location.hash.slice(1)) {
+    history.replaceState(null, "", nuevo ? "#" + nuevo : location.pathname);
+  }
+}
+
+function leerHash() {
+  const partes = new URLSearchParams(location.hash.slice(1));
+  $("desde").value = partes.get("desde") || D.desde || "";
+  $("hasta").value = partes.get("hasta") || D.hasta || "";
+  $("ensena").value = partes.get("ensena") || "";
+  rellenarCentros();
+  $("centro").value = partes.get("centro") || "";
+  $("texto").value = partes.get("texto") || "";
+}
+
+// ---------- descarga del filtro ----------
+
+function descargarFiltrado() {
+  const f = filtroActual();
+  const lineas = filtrar(f);
+  const cabecera = ["centro", "nombre_centro", "ensena", "fecha", "albaran",
+                    "referencia", "marca", "descripcion", "unidades", "pvp",
+                    "dto", "neto"];
+  const celda = (v) => {
+    const t = String(v);
+    return /[;"\n]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t;
+  };
+  const filas = lineas.map((l) => {
+    const c = D.centros[l[L_CENTRO]];
+    return [c[C_CODIGO], c[C_NOMBRE], c[C_ENSENA], l[L_FECHA], l[L_ALBARAN],
+            l[L_REF], D.marcas[l[L_MARCA]], l[L_DESC],
+            (l[L_UDS] / 1000).toFixed(2).replace(".", ","),
+            (l[L_PVP] / 100).toFixed(2).replace(".", ","),
+            (l[L_DTO] / 10000).toFixed(4).replace(".", ","),
+            (l[L_NETO] / 100).toFixed(2).replace(".", ",")].map(celda).join(";");
+  });
+  const csv = "﻿" + cabecera.join(";") + "\r\n" + filas.join("\r\n") + "\r\n";
+  const nombre = "compras-ad360_" + (f.desde || "inicio") + "_" +
+                 (f.hasta || "fin") + ".csv";
+  const enlace = document.createElement("a");
+  enlace.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+  enlace.download = nombre;
+  enlace.click();
+  URL.revokeObjectURL(enlace.href);
+}
+</script>
+</body>
+</html>
