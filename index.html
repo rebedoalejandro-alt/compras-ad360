@@ -148,7 +148,7 @@ input[type="search"] { width: 100%; }
 /* El total esta incompleto cuando hay centros ilegibles. La regla ambar
    marca que es una salvedad sobre la cifra, no una nota mas. */
 .faltan {
-  margin-top: 18px;
+  margin-top: 30px;
   padding: 12px 0 12px 14px;
   border-left: 3px solid var(--ambar);
   font-size: 13.5px;
@@ -279,7 +279,6 @@ tr.devolucion td, tr.devolucion .concepto { color: var(--oxido); }
     <strong class="cifra dato" id="cifra">—</strong>
     <div class="regla"></div>
     <div class="pie" id="pie"></div>
-    <div id="faltan"></div>
   </section>
 
   <div id="salida"><p class="cargando">Cargando movimientos…</p></div>
@@ -295,6 +294,8 @@ tr.devolucion td, tr.devolucion .concepto { color: var(--oxido); }
       de la barra de direcciones guarda el filtro: cópialo y quien lo abra verá
       lo mismo que tú.</p>
   </footer>
+
+  <div id="faltan"></div>
 
 </div>
 
