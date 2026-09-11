@@ -150,8 +150,14 @@ input[type="search"] { width: 100%; }
   font-size: 13.5px;
   color: var(--tinta-suave);
 }
-.ahorro b { color: var(--tinta); font-weight: 600; }
-.ahorro.negativo b { color: var(--oxido); }
+/* El ahorro va en rojo para que salte a la vista. Como en el resto del panel
+   el rojo significa "negativo", cuando Reynasa sale mas cara se cambia la
+   palabra a sobrecoste: asi el color llama la atencion sin enganar. */
+.ahorro b {
+  color: var(--oxido);
+  font-weight: 700;
+  font-size: 17px;
+}
 
 /* El total esta incompleto cuando hay centros ilegibles. La regla ambar
    marca que es una salvedad sobre la cifra, no una nota mas. */
@@ -579,9 +585,9 @@ function pintar() {
     "<span><b>" + ent.format(centros.size) + "</b> centros con compra</span>" +
     '<span class="conIva">' + dinero(conIva) + " con IVA</span>";
 
-  $("ahorro").className = lineasCruzan && ahorro < 0 ? "ahorro negativo" : "ahorro";
   $("ahorro").innerHTML = lineasCruzan
-    ? "<b>" + dinero(ahorro) + "</b> de ahorro comprando en Reynasa, sobre " +
+    ? "<b>" + dinero(ahorro) + "</b> de " +
+      (ahorro < 0 ? "sobrecoste" : "ahorro") + " comprando en Reynasa, sobre " +
       ent.format(lineasCruzan) + (lineasCruzan === 1 ? " línea" : " líneas") +
       " y " + dinero(compradoCruza) + " comprados"
     : "Todavía no hay líneas comparadas con Reynasa.";
