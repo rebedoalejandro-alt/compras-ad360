@@ -221,6 +221,7 @@ tr.linea td { color: var(--tinta); }
 tr.linea .ref { font-weight: 500; }
 tr.devolucion td, tr.devolucion .concepto { color: var(--oxido); }
 .devuelto { color: var(--oxido); }
+.rey { color: var(--oxido); }
 
 .marca-pieza { color: var(--tinta-suave); font-size: 13px; }
 .desc { color: var(--tinta-suave); font-size: 13px; }
@@ -500,7 +501,7 @@ function filtrar(f) {
 // ---------- agrupacion ----------
 
 function nodo(clave, etiqueta, nivel) {
-  return { clave, etiqueta, nivel, neto: 0, ahorro: 0, lineas: 0,
+  return { clave, etiqueta, nivel, neto: 0, ahorro: 0, costeRey: 0, lineas: 0,
            albaranes: new Set(), hijos: new Map(), filas: null };
 }
 
@@ -527,7 +528,10 @@ function agrupar(lineas) {
         actual.hijos.set(clave, hijo);
       }
       hijo.neto += l[L_NETO];
-      if (l[L_REY_NETO] !== null) hijo.ahorro += l[L_NETO] - l[L_REY_NETO];
+      if (l[L_REY_NETO] !== null) {
+        hijo.ahorro += l[L_NETO] - l[L_REY_NETO];
+        hijo.costeRey += l[L_REY_NETO];
+      }
       hijo.lineas += 1;
       hijo.albaranes.add(centro[C_CODIGO] + "|" + l[L_ALBARAN]);
       actual = hijo;
@@ -666,6 +670,7 @@ function tabla(filas) {
     '<th class="num oculta-movil">PVP</th>' +
     '<th class="num oculta-movil">Dto.</th>' +
     '<th class="num">Neto s/IVA</th>' +
+    '<th class="num oculta-movil">Coste Reynasa</th>' +
     '<th class="num oculta-movil">Ahorro Reynasa</th>' +
     "</tr></thead><tbody>" + cuerpo + "</tbody></table>";
 }
@@ -688,7 +693,9 @@ function filaGrupo(n, abierto) {
     '<td class="num oculta-movil"><span class="celda"></span></td>' +
     '<td class="num"><span class="celda dato' + (n.neto < 0 ? " devuelto" : "") + '">' +
       dinero(n.neto) + "</span></td>" +
-    '<td class="num oculta-movil"><span class="celda dato">' +
+    '<td class="num oculta-movil"><span class="celda dato rey">' +
+      (n.costeRey ? dinero(n.costeRey) : "") + "</span></td>" +
+    '<td class="num oculta-movil"><span class="celda dato rey">' +
       (n.ahorro ? dinero(n.ahorro) : "") + "</span></td></tr>";
 }
 
@@ -711,7 +718,10 @@ function filaLinea(l, nivel) {
     '<td class="num oculta-movil"><span class="celda dato">' + dto + "</span></td>" +
     '<td class="num"><span class="celda dato">' + dinero(l[L_NETO]) +
       "</span></td>" +
-    '<td class="num oculta-movil"><span class="celda dato" title="' +
+    '<td class="num oculta-movil"><span class="celda dato rey" title="' +
+      esc(l[L_REY_ETIQUETA]) + '">' +
+      (l[L_REY_NETO] === null ? "" : dinero(l[L_REY_NETO])) + "</span></td>" +
+    '<td class="num oculta-movil"><span class="celda dato rey" title="' +
       esc(l[L_REY_ETIQUETA]) + '">' +
       (l[L_REY_NETO] === null ? "" : dinero(l[L_NETO] - l[L_REY_NETO])) +
       "</span></td></tr>";
