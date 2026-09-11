@@ -4,9 +4,9 @@ Panel de la compra por albarán de los centros AURGI y MOTORTOWN en AD360.
 
 **Panel:** https://rebedoalejandro-alt.github.io/compras-ad360/
 
-Periodo publicado: 2026-08-01 a 2026-09-10  
-Última actualización: 2026-09-10T16:26:07  
-Líneas: 7591 - Albaranes: 5047 - Centros: 30
+Periodo publicado: 2026-08-01 a 2026-09-11  
+Última actualización: 2026-09-11T09:03:36  
+Líneas: 7628 - Albaranes: 5074 - Centros: 30
 
 ## Datos en bruto
 
