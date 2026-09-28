@@ -5,8 +5,8 @@ Panel de la compra por albarán de los centros AURGI y MOTORTOWN en AD360.
 **Panel:** https://rebedoalejandro-alt.github.io/compras-ad360/
 
 Periodo publicado: 2026-08-01 a 2026-09-28  
-Última actualización: 2026-09-28T11:12:42  
-Líneas: 8833 - Albaranes: 5856 - Centros: 30
+Última actualización: 2026-09-28T16:43:34  
+Líneas: 8850 - Albaranes: 5872 - Centros: 30
 
 ## Datos en bruto
 
@@ -16,11 +16,12 @@ Líneas: 8833 - Albaranes: 5856 - Centros: 30
 
 Los importes `neto` son sin IVA (PVP menos descuento, por unidades). El `total_con_iva` de los albaranes incluye el 21 %. Las devoluciones llevan unidades e importes negativos.
 
-## Centros de los que faltan datos (4)
+## Centros de los que faltan datos (5)
 
 Los totales de este panel **no incluyen** estos centros:
 
-- **22 SAN FERNANDO** (AURGI): error interno de AD360 al validar el acceso.
+- **21 LEGANES** (AURGI): no se ha podido leer este centro.
+- **22 SAN FERNANDO** (AURGI): no se ha podido leer este centro.
 - **85 MAJADAHONDA** (AURGI): AD360 rechaza la contraseña del centro.
 - **167 ISLAZUL** (AURGI): no hay usuario para este centro en el fichero de accesos.
 - **194 ARROYOMOLINOS** (MOTORTOWN): AD360 rechaza la contraseña del centro.
