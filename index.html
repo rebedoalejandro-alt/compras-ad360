@@ -159,6 +159,23 @@ input[type="search"] { width: 100%; }
   font-size: 17px;
 }
 
+/* Los datos dejaron de actualizarse: hay que decirlo arriba del todo, no al
+   pie, para que nadie lea estas cifras como si fueran las de hoy. */
+.congelado {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--ambar);
+  border-left-width: 4px;
+  border-radius: 4px;
+  background: var(--papel-alto);
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+  max-width: 78ch;
+}
+.congelado p { margin: 0 0 7px; }
+.congelado p:last-child { margin: 0; }
+.congelado b { color: var(--tinta); font-weight: 600; }
+
 /* El total esta incompleto cuando hay centros ilegibles. La regla ambar
    marca que es una salvedad sobre la cifra, no una nota mas. */
 .faltan {
@@ -257,6 +274,17 @@ tr.devolucion td, tr.devolucion .concepto { color: var(--oxido); }
     </nav>
   </header>
 
+  <section class="congelado">
+    <p><b>Estos datos están congelados a 1 de octubre de 2026 y no se
+      actualizan.</b></p>
+    <p>AD360 v1 (<code>old.ad360.es</code>), de donde se extraía la compra, se
+      apagó el 7 de octubre de 2026. El nuevo AD360 usa otro sistema de acceso y
+      las credenciales anteriores ya no sirven, así que la extracción diaria
+      está detenida.</p>
+    <p>Lo que ves sigue siendo correcto para el periodo del 1 de agosto al 1 de
+      octubre de 2026. No lo uses como cifra de hoy.</p>
+  </section>
+
   <form class="filtros" id="filtros" autocomplete="off">
     <div class="campo">
       <label for="desde">Desde</label>
@@ -310,9 +338,9 @@ tr.devolucion td, tr.devolucion .concepto { color: var(--oxido); }
       Pasa el ratón por la cifra para ver con qué artículo se comparó.</p>
     <p>Centros y meses se ordenan por importe, de mayor a menor. Días y albaranes,
       del más reciente al más antiguo.</p>
-    <p>Se actualiza solo dos veces al día, a las 09:00 y a las 15:00. El enlace
-      de la barra de direcciones guarda el filtro: cópialo y quien lo abra verá
-      lo mismo que tú.</p>
+    <p>La actualización automática está detenida desde el 7 de octubre de 2026.
+      El enlace de la barra de direcciones guarda el filtro: cópialo y quien lo
+      abra verá lo mismo que tú.</p>
   </footer>
 
   <div id="faltan"></div>
